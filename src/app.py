@@ -41,8 +41,24 @@ activities = {
         "description": "A team for students who enjoy playing and competing in basketball.",
         "participants": []
     },
+    "Volleyball Team": {
+        "description": "A team for students who enjoy playing and competing in volleyball.",
+        "participants": []
+    },
+    "Track and Field Team": {
+        "description": "A team for students who enjoy running, jumping, and throwing in track and field events.",
+        "participants": []
+    },
     "Art Club": {
         "description": "A club for students interested in drawing, painting, and other visual arts.",
+        "participants": []
+    },
+    "Photography Club": {
+        "description": "A club for students interested in learning photography and creating visual stories.",
+        "participants": []
+    },
+    "Creative Writing Club": {
+        "description": "A club for students interested in writing poetry, stories, and other creative works.",
         "participants": []
     },
     "Music Club": {
@@ -53,8 +69,16 @@ activities = {
         "description": "A club for students who enjoy researching topics and building arguments.",
         "participants": []
     },
+    "Math Club": {
+        "description": "A club for students interested in solving challenging mathematical problems and puzzles.",
+        "participants": []
+    },
     "Science Club": {
         "description": "A club for students interested in exploring scientific ideas and experiments.",
+        "participants": []
+    },
+    "Computer Science Club": {
+        "description": "A club for students interested in learning programming and exploring computer technology.",
         "participants": []
     }
 }
@@ -86,3 +110,20 @@ def signup_for_activity(activity_name: str, email: str):
     # Add student
     activity["participants"].append(email)
     return {"message": f"Signed up {email} for {activity_name}"}
+
+
+@app.delete("/activities/{activity_name}/unregister")
+def unregister_from_activity(activity_name: str, email: str):
+    """Unregister a student from an activity"""
+    if activity_name not in activities:
+        raise HTTPException(status_code=404, detail="Activity not found")
+
+    activity = activities[activity_name]
+    normalized_email = email.strip().lower()
+
+    for participant in activity["participants"]:
+        if participant.strip().lower() == normalized_email:
+            activity["participants"].remove(participant)
+            return {"message": f"Unregistered {participant} from {activity_name}"}
+
+    raise HTTPException(status_code=404, detail="Student is not signed up for this activity")
