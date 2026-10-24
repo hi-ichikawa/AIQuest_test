@@ -41,8 +41,24 @@ activities = {
         "description": "A team for students who enjoy playing and competing in basketball.",
         "participants": []
     },
+    "Volleyball Team": {
+        "description": "A team for students who enjoy playing and competing in volleyball.",
+        "participants": []
+    },
+    "Track and Field Team": {
+        "description": "A team for students who enjoy running, jumping, and throwing in track and field events.",
+        "participants": []
+    },
     "Art Club": {
         "description": "A club for students interested in drawing, painting, and other visual arts.",
+        "participants": []
+    },
+    "Photography Club": {
+        "description": "A club for students interested in learning photography and creating visual stories.",
+        "participants": []
+    },
+    "Creative Writing Club": {
+        "description": "A club for students interested in writing poetry, stories, and other creative works.",
         "participants": []
     },
     "Music Club": {
@@ -53,8 +69,16 @@ activities = {
         "description": "A club for students who enjoy researching topics and building arguments.",
         "participants": []
     },
+    "Math Club": {
+        "description": "A club for students interested in solving challenging mathematical problems and puzzles.",
+        "participants": []
+    },
     "Science Club": {
         "description": "A club for students interested in exploring scientific ideas and experiments.",
+        "participants": []
+    },
+    "Computer Science Club": {
+        "description": "A club for students interested in learning programming and exploring computer technology.",
         "participants": []
     }
 }
